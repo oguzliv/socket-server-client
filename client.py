@@ -29,7 +29,7 @@ class Client:
 
     def send_message(self):
         mess = Message(imei='123456789123456', lock_status=self.lock_status,
-                       battery=20, network_value=22, charging_status=random.randrange(20, 90), eol='%%')
+                       battery=random.randrange(20, 90), network_value=22, charging_status=0, eol='%%')
         mess_bytes = bytes(mess.__str__(), 'utf-8')
         self.lock_status = 1 if self.lock_status == 0 else 0
         self.socket.sendall(mess_bytes)
